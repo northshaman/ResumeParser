@@ -1,6 +1,7 @@
 package utils;
 
 import com.shaman.parser.config.RootConfig;
+import com.shaman.parser.entity.ResumeObj;
 import com.shaman.parser.utils.SiteParserService;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -15,7 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Class for test simple operations with WebDriver
+ * Class for test API operations with WebDriver
  */
 @ContextConfiguration(classes = {RootConfig.class})
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,14 +25,14 @@ public class SiteParserServiceTest {
     @Autowired
     private SiteParserService parserService;
 
-//    @Ignore
+    //    @Ignore
     @Test
     public void testProps() {
         parserService.getCssPropertiesMap().forEach((k, v) ->
                 System.out.println(k + " -> " + v));
     }
 
-//    @Ignore
+    //    @Ignore
     @Test
     public void getTargetElementsListTest() {
         List<WebElement> resumeList = parserService.getTargetElementsList();
@@ -55,7 +56,7 @@ public class SiteParserServiceTest {
         }
     }
 
-//    @Ignore
+    //    @Ignore
     @Test
     public void parseIntegerValuesTest() {
         List<WebElement> resumeList = parserService.getTargetElementsList();
@@ -75,4 +76,10 @@ public class SiteParserServiceTest {
         }
     }
 
+    //    @Ignore
+    @Test
+    public void getNewResumePack() {
+        List<ResumeObj> resumeItems = parserService.getNewResumeList();
+        resumeItems.forEach(System.out::println);
+    }
 }

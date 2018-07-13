@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * SiteParser HTML
  */
 @Component
-@PropertySource({"classpath:css.properties","classpath:config.properties"})
+@PropertySource({"classpath:css.properties", "classpath:config.properties"})
 public class SiteParserService {
 
     private String targetURL;
@@ -119,6 +119,7 @@ public class SiteParserService {
         }
         return elementValue;
     }
+
     public List<ResumeObj> getNewResumeList() {
         List<WebElement> resumeList = getTargetElementsList();
         List<ResumeObj> resumeItems = new ArrayList<>();
@@ -132,22 +133,22 @@ public class SiteParserService {
             while (m.find()) {
                 age = m.group();
             }
-//            ResumeObj resumeItem = new ResumeObj(
-//                    Long.parseLong(parserService.getElementVal(resume, "idOriginal", "name")),
-//                    fio,
-//                    Integer.parseInt(age),
-//                    parserService.getElementVal(resume, "resumeLink", "href"),
-//                    parserService.getElementVal(resume, "positionName"),
-//                    parserService.getElementVal(resume, "lastVisit"),
-//                    parserService.getElementVal(resume, "city"),
-//                    parserService.getElementVal(resume, "wageLevel"),
-//                    parserService.getElementVal(resume, "education"),
-//                    parserService.getElementVal(resume, "experience"),
-//                    parserService.getElementVal(resume, "lastPlaceOfWork"),
-//                    parserService.getElementVal(resume, "lastPositionName"),
-//                    parserService.getElementVal(resume, "lastPlaceDuration"),
-//                    parserService.getElementVal(resume, "pictureLink", "src"));
-//            resumeItems.add(resumeItem);
+            ResumeObj resumeItem = new ResumeObj();
+            resumeItem.setIdOriginal(Long.parseLong(getElementVal(resume, "idOriginal", "name")));
+            resumeItem.setFio(fio);
+            resumeItem.setAge(Integer.parseInt(age));
+            resumeItem.setResumeLink(getElementVal(resume, "resumeLink", "href"));
+            resumeItem.setPositionName(getElementVal(resume, "positionName"));
+            resumeItem.setLastVisit(getElementVal(resume, "lastVisit"));
+            resumeItem.setCity(getElementVal(resume, "city"));
+            resumeItem.setWageLevel(getElementVal(resume, "wageLevel"));
+            resumeItem.setEducation(getElementVal(resume, "education"));
+            resumeItem.setExperience(getElementVal(resume, "experience"));
+            resumeItem.setLastPlaceOfWork(getElementVal(resume, "lastPlaceOfWork"));
+            resumeItem.setLastPositionName(getElementVal(resume, "lastPositionName"));
+            resumeItem.setLastPlaceDuration(getElementVal(resume, "lastPlaceDuration"));
+            resumeItem.setPictureLink(getElementVal(resume, "pictureLink", "src"));
+            resumeItems.add(resumeItem);
         });
         return resumeItems;
     }
