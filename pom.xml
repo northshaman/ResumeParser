@@ -7,12 +7,21 @@
     <groupId>com.shaman.parser</groupId>
     <artifactId>ResumeParser</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
 
     <properties>
-    <!--Parser Tools-->
-    <phantomjsdriver.version>1.0.1</phantomjsdriver.version>
-    <selenium.version>3.13.0</selenium.version>
+        <!--Parser Tools-->
+        <phantomjsdriver.version>1.0.1</phantomjsdriver.version>
+        <selenium.version>3.13.0</selenium.version>
+
+
+        <!--Web-->
+        <jstl.version>1.2</jstl.version>
+        <javax.servlet-api.version>4.0.0</javax.servlet-api.version>
+
+        <!--Test-->
+        <junit.version>4.12</junit.version>
     </properties>
 
     <profiles>
@@ -41,10 +50,51 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.2.2.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.2.2.RELEASE</version>
+        </dependency>
+        <!--SPRING TEST-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.2.1.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <!--TESTS-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--WEB-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
 
 
-
-
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
 
         <!--SELENIUM-->
         <dependency>
@@ -59,8 +109,38 @@
             <artifactId>phantomjsdriver</artifactId>
             <version>${phantomjsdriver.version}</version>
         </dependency>
-    </dependencies>
-    <packaging>war</packaging>
 
+    </dependencies>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
 
 </project>
