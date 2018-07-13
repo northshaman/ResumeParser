@@ -7,11 +7,57 @@
     <groupId>com.shaman.parser</groupId>
     <artifactId>ResumeParser</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+    <!--Parser Tools-->
+    <phantomjsdriver.version>1.0.1</phantomjsdriver.version>
+    <selenium.version>3.13.0</selenium.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>home</id>
+            <properties>
+                <phantomJS.path>D:\\JavaProjects\\phantomJS\\bin\\phantomjs.exe</phantomJS.path>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>work</id>
+            <properties>
+                <phantomJS.path>C:\\Java\\phantomJS\\bin\\phantomjs.exe</phantomJS.path>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
+
+        <!--SPRING-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>4.2.2.RELEASE</version>
+        </dependency>
+
+
+
+
+
+        <!--SELENIUM-->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!--PHANTOM DRIVER-->
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>${phantomjsdriver.version}</version>
         </dependency>
     </dependencies>
     <packaging>war</packaging>
