@@ -1,58 +1,60 @@
 package com.shaman.parser.entity;
 
-//import javax.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 
 /**
  * Created by shaman on 13.07.2018.
  */
-//@Entity
-//@Table(name = "resume")
+@Entity
+@Table(name = "resume")
 public class ResumeObj {
-    //    @Id
-//    @GeneratedValue(generator = "increment")
-//    @GenericGenerator(name="increment",strategy = "increment")
+        @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name="increment",strategy = "increment")
     private long id;
 
-    //    @Column(name = "idOriginal",nullable = false)
+        @Column(name = "idOriginal",nullable = false)
     private long idOriginal;
 
-    //    @Column(name = "fio", nullable = false)
+        @Column(name = "fio", nullable = false)
     private String fio;
 
-    //    @Column(name = "age")
+        @Column(name = "age")
     private int age;
 
-    //    @Column(name = "resumeLink")
+        @Column(name = "resumeLink")
     private String resumeLink;
 
-    //    @Column(name = "positionName")
+        @Column(name = "positionName")
     private String positionName;
 
-    //    @Column(name = "lastVisit")
+        @Column(name = "lastVisit")
     private String lastVisit;
 
-    //    @Column(name = "city")
+        @Column(name = "city")
     private String city;
 
-    //    @Column(name = "wageLevel")
+        @Column(name = "wageLevel")
     private String wageLevel;
 
-    //    @Column(name = "education")
+        @Column(name = "education")
     private String education;
 
-    //    @Column(name = "experience")
+        @Column(name = "experience")
     private String experience;
 
-    //    @Column(name = "lastPlaceOfWork")
+        @Column(name = "lastPlaceOfWork")
     private String lastPlaceOfWork;
 
-    //    @Column(name = "lastPositionName")
+        @Column(name = "lastPositionName")
     private String lastPositionName;
 
-    //    @Column(name = "lastPlaceDuration")
+        @Column(name = "lastPlaceDuration")
     private String lastPlaceDuration;
 
-    //    @Column(name = "pictureLink")
+        @Column(name = "pictureLink")
     private String pictureLink;
 
     public ResumeObj() {
