@@ -4,8 +4,10 @@ import com.shaman.parser.entity.ResumeObj;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,23 +20,28 @@ import java.util.regex.Pattern;
 /**
  * SiteParser HTML
  */
-@Service
+@Component
+@PropertySource({"classpath:css.properties","classpath:config.properties"})
 public class SiteParserService {
 
-    @Value("${phantomJS.defaultURL}")
     private String targetURL;
 
-    @Value("${css.resume}")
     private String CSS_RESUME_ELEMENT;
 
     private WebDriver driver;
 
     private Map<String, String> cssPropertiesMap = new HashMap<>();
 
+    private final
+    Environment env;
+
     @Autowired
-    public SiteParserService(WebDriver driver) {
+    public SiteParserService(WebDriver driver, Environment env) {
+        this.env = env;
         this.driver = driver;
         initCSSFromProps();
+        this.targetURL = env.getProperty("phantomJS.defaultURL");
+        this.CSS_RESUME_ELEMENT = env.getProperty("css.resume");
     }
 
     public List<WebElement> getTargetElementsList() {

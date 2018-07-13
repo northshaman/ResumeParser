@@ -1,6 +1,5 @@
 package utils;
 
-
 import com.shaman.parser.config.RootConfig;
 import com.shaman.parser.utils.SiteParserService;
 import org.junit.Ignore;
@@ -20,6 +19,7 @@ import java.util.regex.Pattern;
  */
 @ContextConfiguration(classes = {RootConfig.class})
 @RunWith(SpringJUnit4ClassRunner.class)
+//@WebAppConfiguration  //
 public class SiteParserServiceTest {
     @Autowired
     private SiteParserService parserService;
@@ -30,7 +30,8 @@ public class SiteParserServiceTest {
         parserService.getCssPropertiesMap().forEach((k, v) ->
                 System.out.println(k + " -> " + v));
     }
-//@Ignore
+
+//    @Ignore
     @Test
     public void getTargetElementsListTest() {
         List<WebElement> resumeList = parserService.getTargetElementsList();
@@ -53,7 +54,8 @@ public class SiteParserServiceTest {
             System.out.println();
         }
     }
-@Ignore
+
+//    @Ignore
     @Test
     public void parseIntegerValuesTest() {
         List<WebElement> resumeList = parserService.getTargetElementsList();
@@ -63,11 +65,11 @@ public class SiteParserServiceTest {
             String fioAge = parserService.getElementVal(resumeList.get(i), "fioAndAge");
             System.out.println(fioAge);
             String fio = fioAge.substring(0, fioAge.indexOf(','));
-            String age="";
+            String age = "";
             Pattern p = Pattern.compile("-?\\d+");
             Matcher m = p.matcher(fioAge.substring(fioAge.indexOf(',')));
             while (m.find()) {
-                 age = m.group();
+                age = m.group();
             }
             System.out.println("FIO -> " + fio + " age -> " + Integer.parseInt(age));
         }

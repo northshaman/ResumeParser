@@ -12,8 +12,8 @@ import org.springframework.core.env.Environment;
  *
  */
 @Configuration
-@PropertySource({"classpath:config.properties","classpath:css.properties"})
-@ComponentScan({"com.shaman.parser"})
+@PropertySource("classpath:config.properties")
+@ComponentScan({"com.shaman.parser.entity","com.shaman.parser.services","com.shaman.parser.utils"})
 public class RootConfig {
 
     @Autowired
