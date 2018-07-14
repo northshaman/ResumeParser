@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 /**
- * Created by shaman on 13.07.2018.
+ * Simplified Resume object entity
  */
 @Entity
 @Table(name = "resume")

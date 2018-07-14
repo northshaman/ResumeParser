@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * SiteParser HTML
+ * SiteParser HTML base class for working with Web Elements and generating Objects
  */
 @Component
 @PropertySource({"classpath:css.properties", "classpath:config.properties"})
@@ -44,48 +44,16 @@ public class SiteParserService {
         this.CSS_RESUME_ELEMENT = env.getProperty("css.resume");
     }
 
+    /**
+     * Parse base Web elements for further parsing
+     *
+     * @return List of Root Web elements
+     */
     public List<WebElement> getTargetElementsList() {
         this.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         this.driver.manage().window().setSize(new Dimension(1280, 1024));
         this.driver.get(targetURL);
         return driver.findElements(By.cssSelector(CSS_RESUME_ELEMENT));
-    }
-
-    public Map<String, String> getCssPropertiesMap() {
-        return cssPropertiesMap;
-    }
-
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public String getTargetURL() {
-        return targetURL;
-    }
-
-    public void setTargetURL(String targetURL) {
-        this.targetURL = targetURL;
-        this.driver.get(targetURL);
-    }
-
-    /**
-     * initialize map for storage css selectors
-     */
-    private void initCSSFromProps() {
-        Properties prop = null;
-        InputStream is;
-        try {
-            prop = new Properties();
-            is = this.getClass().getResourceAsStream("/css.properties");
-            prop.load(is);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Set<Object> keys = prop.keySet();
-        Properties finalProp = prop;
-        keys.forEach(k ->
-                cssPropertiesMap.put((String) k, finalProp.getProperty((String) k))
-        );
     }
 
     /**
@@ -151,5 +119,42 @@ public class SiteParserService {
             resumeItems.add(resumeItem);
         });
         return resumeItems;
+    }
+
+    /**
+     * initialize map for storage css selectors
+     */
+    private void initCSSFromProps() {
+        Properties prop = null;
+        InputStream is;
+        try {
+            prop = new Properties();
+            is = this.getClass().getResourceAsStream("/css.properties");
+            prop.load(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Set<Object> keys = prop.keySet();
+        Properties finalProp = prop;
+        keys.forEach(k ->
+                cssPropertiesMap.put((String) k, finalProp.getProperty((String) k))
+        );
+    }
+
+    public Map<String, String> getCssPropertiesMap() {
+        return cssPropertiesMap;
+    }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public String getTargetURL() {
+        return targetURL;
+    }
+
+    public void setTargetURL(String targetURL) {
+        this.targetURL = targetURL;
+        this.driver.get(targetURL);
     }
 }

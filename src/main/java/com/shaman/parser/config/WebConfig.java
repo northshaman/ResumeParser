@@ -10,13 +10,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /**
- *  Java Configuration for Web
+ *  Configuration for Web
  */
 
 @Configuration
 @EnableWebMvc
-//@ComponentScan("com.shaman.parser.controllers")
-@ComponentScan("com.shaman.parser.controllers")
+@ComponentScan("com.shaman.parser")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override

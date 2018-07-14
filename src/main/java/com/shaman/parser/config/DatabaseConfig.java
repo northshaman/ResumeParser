@@ -19,11 +19,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-//@Configuration
-//@EnableJpaRepositories("com.shaman.parser.repository")
-//@EnableTransactionManagement
-//@PropertySource("classpath:db.properties")
-@ComponentScan({"com.shaman.parser.entity","com.shaman.parser.repository","com.shaman.parser.services"})
+@Configuration
+@EnableJpaRepositories("com.shaman.parser.repository")
+@EnableTransactionManagement
+@PropertySource("classpath:db.properties")
+@ComponentScan("com.shaman.parser")
 public class DatabaseConfig {
 
     @Resource

@@ -1,5 +1,7 @@
-package com.shaman.parser.config;
+package com.shaman.parser;
 
+import com.shaman.parser.config.DatabaseConfig;
+import com.shaman.parser.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -10,8 +12,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{
-                RootConfig.class
-//                ,DatabaseConfig.class
+                DatabaseConfig.class
         };
     }
 

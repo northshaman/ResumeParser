@@ -1,9 +1,8 @@
 package utils;
 
-import com.shaman.parser.config.RootConfig;
+import com.shaman.parser.config.WebDriverConfig;
 import com.shaman.parser.entity.ResumeObj;
 import com.shaman.parser.utils.SiteParserService;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebElement;
@@ -18,7 +17,7 @@ import java.util.regex.Pattern;
 /**
  * Class for test API operations with WebDriver
  */
-@ContextConfiguration(classes = {RootConfig.class})
+@ContextConfiguration(classes = {WebDriverConfig.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 //@WebAppConfiguration  //
 public class SiteParserServiceTest {
