@@ -31,11 +31,11 @@ public class WebDriverConfig {
     public WebDriver getPhantomJSWebDriver(){
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setJavascriptEnabled(true);
-//        ArrayList<String> cliArgsCap = new ArrayList<>();
-//        cliArgsCap.add("--webdriver-loglevel=NONE");
+        ArrayList<String> cliArgsCap = new ArrayList<>();
+        cliArgsCap.add("--webdriver-loglevel=NONE");
 
         caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, env.getRequiredProperty("phantomJS.path"));
-//        caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS,cliArgsCap);
+        caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS,cliArgsCap);
 
         return new PhantomJSDriver(caps);
 
