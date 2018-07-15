@@ -5,10 +5,11 @@
   Time: 10:47
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251"%>
 <html>
   <head>
-    <title>$Title$</title>
+    <meta http-equiv="content-type" content="text/html; charset=cp1251">
+    <title>ResumesMain</title>
   </head>
   <body>
   <a href="/resumes/get">GO!</a>
