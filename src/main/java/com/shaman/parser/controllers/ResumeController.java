@@ -19,6 +19,7 @@ public class ResumeController {
     @RequestMapping(value = "/get", method = RequestMethod.GET)
 //    @ResponseBody
     public String getResume(ModelMap model){
+        System.out.println("CATCH!");
 //        return new ModelAndView("resume");
         model.addAttribute("greeting", "Hello World from Spring 4 MVC");
         return "resume";

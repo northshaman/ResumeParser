@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.shaman.parser")
+@ComponentScan("com.shaman.parser.controllers")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override

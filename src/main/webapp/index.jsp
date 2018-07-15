@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <a href="/resumes/get">GO!</a>
   </body>
 </html>

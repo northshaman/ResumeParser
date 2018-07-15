@@ -3,6 +3,7 @@ package utils;
 import com.shaman.parser.config.WebDriverConfig;
 import com.shaman.parser.entity.ResumeObj;
 import com.shaman.parser.utils.SiteParserService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebElement;
@@ -24,14 +25,14 @@ public class SiteParserServiceTest {
     @Autowired
     private SiteParserService parserService;
 
-    //    @Ignore
+    @Ignore
     @Test
     public void testProps() {
         parserService.getCssPropertiesMap().forEach((k, v) ->
                 System.out.println(k + " -> " + v));
     }
 
-    //    @Ignore
+    @Ignore
     @Test
     public void getTargetElementsListTest() {
         List<WebElement> resumeList = parserService.getTargetElementsList();
@@ -55,7 +56,7 @@ public class SiteParserServiceTest {
         }
     }
 
-    //    @Ignore
+    @Ignore
     @Test
     public void parseIntegerValuesTest() {
         List<WebElement> resumeList = parserService.getTargetElementsList();
@@ -75,7 +76,7 @@ public class SiteParserServiceTest {
         }
     }
 
-    //    @Ignore
+    @Ignore
     @Test
     public void getNewResumePack() {
         List<ResumeObj> resumeItems = parserService.getNewResumeList();

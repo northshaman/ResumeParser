@@ -10,7 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+
     <properties>
+
         <!--SPRING-->
         <spring.version>4.2.2.RELEASE</spring.version>
         <!--Parser Tools-->
@@ -76,7 +78,6 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet-api.version}</version>
         </dependency>
-
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -144,26 +145,12 @@
         </dependency>
 
         <!--PHANTOM DRIVER-->
+        <!-- https://mvnrepository.com/artifact/com.github.klieber/phantomjs -->
         <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>phantomjs</artifactId>
-            <version>2.1.2</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>selenium-java</artifactId>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>selenium-remote-driver</artifactId>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>commons-codec</artifactId>
-                    <groupId>commons-codec</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>ch.racic.selenium</groupId>
+            <artifactId>selenium-driver-helper-phantomjs</artifactId>
+            <version>2.1.1</version>
         </dependency>
-
 
         <!--LOGGERS-->
         <dependency>
