@@ -27,6 +27,8 @@ public class ResumeServiceImpl implements ResumeService {
 
     @Override
     public ResumeObj save(ResumeObj resumeObj) {
+//        TODO: delete SOUT и добавить проверку на наличие в базе уже этого объекта
+        System.out.println("Trying to save resume to DB");
         return repository.saveAndFlush(resumeObj);
     }
 

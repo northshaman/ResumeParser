@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: shaman
-  Date: 13.07.2018
-  Time: 10:47
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=Cp1251" pageEncoding="Cp1251"%>
 <html>
   <head>
@@ -13,5 +6,7 @@
   </head>
   <body>
   <a href="/resumes/get">GO!</a>
+  <a href="/resumes/addPack">ADD!</a>
+  <a href="/resumes/test">Add one!</a>
   </body>
 </html>
