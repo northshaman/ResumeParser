@@ -3,13 +3,14 @@ package com.shaman.parser.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Simplified Resume object entity
  */
 @Entity
 @Table(name = "resume")
-public class ResumeObj {
+public class Resume {
         @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name="increment",strategy = "increment")
@@ -22,7 +23,7 @@ public class ResumeObj {
     private String fio;
 
         @Column(name = "age")
-    private int age;
+    private Integer age;
 
         @Column(name = "resumeLink")
     private String resumeLink;
@@ -57,7 +58,7 @@ public class ResumeObj {
         @Column(name = "pictureLink")
     private String pictureLink;
 
-    public ResumeObj() {
+    public Resume() {
     }
 
     @Override
@@ -108,12 +109,12 @@ public class ResumeObj {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ResumeObj that = (ResumeObj) o;
+        Resume that = (Resume) o;
 
         if (id != that.id) return false;
         if (idOriginal != that.idOriginal) return false;
-        if (age != that.age) return false;
-        if (wageLevel != that.wageLevel) return false;
+        if (!Objects.equals(age, that.age)) return false;
+        if (!Objects.equals(wageLevel, that.wageLevel)) return false;
         if (!fio.equals(that.fio)) return false;
         if (!resumeLink.equals(that.resumeLink)) return false;
         if (!positionName.equals(that.positionName)) return false;
@@ -154,11 +155,11 @@ public class ResumeObj {
         this.fio = fio;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

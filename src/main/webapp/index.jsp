@@ -5,8 +5,11 @@
     <title>ResumesMain</title>
   </head>
   <body>
-  <a href="/resumes/get">GO!</a>
-  <a href="/resumes/addPack">ADD!</a>
-  <a href="/resumes/test">Add one!</a>
+  <a href="/resumes/">get all</a>
+  <a href="/resumes/get/">get one by id</a>
+  <a href="/resumes/delete/">delete one!</a>
+  <a href="/parse/test">add vasya</a>
+  <a href="/parse/addPack">add Pack!</a>
+  <a href="/parse/vasya/">get by old ID</a>
   </body>
 </html>

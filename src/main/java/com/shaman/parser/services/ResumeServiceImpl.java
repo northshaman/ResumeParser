@@ -1,7 +1,7 @@
 package com.shaman.parser.services;
 
 
-import com.shaman.parser.entity.ResumeObj;
+import com.shaman.parser.entity.Resume;
 import com.shaman.parser.repository.ResumeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,28 +12,46 @@ import java.util.List;
 public class ResumeServiceImpl implements ResumeService {
 
 
+    private final ResumeRepository repository;
+
     @Autowired
-    private ResumeRepository repository;
+    public ResumeServiceImpl(ResumeRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
-    public List<ResumeObj> getAll() {
+    public List<Resume> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public ResumeObj getByID(long id) {
-        return  repository.findOne(id);
+    public Resume getByID(long id) {
+        return repository.findOne(id);
     }
 
     @Override
-    public ResumeObj save(ResumeObj resumeObj) {
-//        TODO: delete SOUT и добавить проверку на наличие в базе уже этого объекта
-        System.out.println("Trying to save resume to DB");
-        return repository.saveAndFlush(resumeObj);
+    public Resume update(Resume resume) {
+        return repository.saveAndFlush(resume);
+    }
+
+    @Override
+    public Resume add(Resume resume) {
+        System.out.println("Trying to add new resume to DB");
+        if (repository.getByIdOriginal(resume.getIdOriginal()) != null) {
+            System.out.println("Allready have one!");
+            //        TODO: delete SOUT add loging and couner
+            return null;
+        } else
+            return repository.saveAndFlush(resume);
     }
 
     @Override
     public void remove(long id) {
         repository.delete(id);
+    }
+
+    @Override
+    public Resume getByIdOriginal(long idOriginal) {
+        return repository.getByIdOriginal(idOriginal);
     }
 }

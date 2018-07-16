@@ -1,6 +1,6 @@
 package com.shaman.parser.utils;
 
-import com.shaman.parser.entity.ResumeObj;
+import com.shaman.parser.entity.Resume;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,23 +89,23 @@ public class SiteParserService {
         return elementValue;
     }
 
-    public List<ResumeObj> getNewResumeList() {
+    public List<Resume> getNewResumeList() {
         List<WebElement> resumeList = getTargetElementsList();
-        List<ResumeObj> resumeItems = new ArrayList<>();
+        List<Resume> resumeItems = new ArrayList<>();
 
         resumeList.forEach(resume -> {
             String fioAge = getElementVal(resume, "fioAndAge");
             String fio = fioAge.substring(0, fioAge.indexOf(','));
-            String age = "";
+            String  stringAge = "";
             Pattern p = Pattern.compile("-?\\d+");
             Matcher m = p.matcher(fioAge.substring(fioAge.indexOf(',')));
             while (m.find()) {
-                age = m.group();
+                stringAge = m.group();
             }
-            ResumeObj resumeItem = new ResumeObj();
+            Resume resumeItem = new Resume();
             resumeItem.setIdOriginal(Long.parseLong(getElementVal(resume, "idOriginal", "name")));
             resumeItem.setFio(fio);
-            resumeItem.setAge(Integer.parseInt(age));
+            resumeItem.setAge(stringAge!=null ? Integer.parseInt(stringAge) : null);
             resumeItem.setResumeLink(getElementVal(resume, "resumeLink", "href"));
             resumeItem.setPositionName(getElementVal(resume, "positionName"));
             resumeItem.setLastVisit(getElementVal(resume, "lastVisit"));

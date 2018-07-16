@@ -1,7 +1,7 @@
 package utils;
 
 import com.shaman.parser.config.WebDriverConfig;
-import com.shaman.parser.entity.ResumeObj;
+import com.shaman.parser.entity.Resume;
 import com.shaman.parser.utils.SiteParserService;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -79,7 +79,7 @@ public class SiteParserServiceTest {
     @Ignore
     @Test
     public void getNewResumePack() {
-        List<ResumeObj> resumeItems = parserService.getNewResumeList();
+        List<Resume> resumeItems = parserService.getNewResumeList();
         resumeItems.forEach(System.out::println);
     }
 }
