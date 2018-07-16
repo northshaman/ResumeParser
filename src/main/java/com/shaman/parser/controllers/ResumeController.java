@@ -25,7 +25,6 @@ public class ResumeController {
         this.resumeService = resumeService;
     }
 
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public List<Resume> getAllResumes() {

@@ -6,7 +6,7 @@ import com.shaman.parser.entity.Resume;
 import java.util.List;
 
 /**
- *
+ * Service Interface for working with Resume Entity
  */
 public interface ResumeService {
     List<Resume> getAll();
