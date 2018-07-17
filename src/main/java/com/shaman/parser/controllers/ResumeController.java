@@ -35,10 +35,9 @@ public class ResumeController {
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public Resume getResume(@PathVariable("id") long resumeID) {
-
-        return resumeService.getByID(resumeID);
+    public String getResume(@PathVariable("id") long resumeID, Model model) {
+        model.addAttribute("resume",resumeService.getByID(resumeID));
+        return "resume";
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)

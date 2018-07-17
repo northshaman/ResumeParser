@@ -17,7 +17,12 @@
 </head>
 <body>
 <div class="header">
-    <h1>Резюме:</h1>
+    <div class="box">
+        <div class="h1">Резюме</div>
+        <div class="box_inner">
+        <button type="button" class="bttn">Пополнить базу</button>
+        </div>
+    </div>
 </div>
 <form autocomplete="off" class="ui form">
     <div class="wrapper">
@@ -40,7 +45,7 @@
                 </div>
 
                 <div class="box_inner">
-                    <button type="button" class="bttn icons bttn-settings">Найти</button>
+                    <button type="button" class="bttn">Найти</button>
                 </div>
             </div>
 
@@ -54,8 +59,9 @@
         <jsp:useBean id="resume" scope="page" type="com.shaman.parser.entity.Resume"/>
         <div class="resume_item">
             <div class="resume_photo">
-                <img src="${resume.pictureLink!=null ? resume.pictureLink : "/img/no_photo.jpg"}" class="ui image">
-                <div class="edit_resume_button">Редактировать</div>
+                <img src="${resume.pictureLink!=null ? resume.pictureLink : "/img/no_photo.png"}" class="ui image">
+                <div class="edit_resume_button">
+                    <a href="/resumes/get/${resume.id}">Редактировать</a></div>
             </div>
             <div class="resume_text resume_text_left">
                 <div class="resume_field">
@@ -92,8 +98,6 @@
                     <c:out value="${resume.education}"/>
                 </div>
             </div>
-
-
         </div>
     </c:forEach>
 </div>
