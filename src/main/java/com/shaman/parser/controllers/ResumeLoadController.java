@@ -30,7 +30,7 @@ public class ResumeLoadController {
         this.resumeService = resumeService;
     }
 
-    @RequestMapping(value = "/addPack", method = RequestMethod.GET)
+    @RequestMapping(value = "/addPack", method = RequestMethod.POST)
     public String putResumes(ModelMap model) {
         List<Resume> newResumeList = parserService.getNewResumeList();
 //        TODO: fix this controller

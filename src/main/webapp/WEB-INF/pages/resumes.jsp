@@ -12,7 +12,10 @@
     <title>Список резюме</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/CSS/master.css">
-    <script src="${pageContext.servletContext.contextPath}/JS/jquery-1.10.0.min.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/JS/jquery.min.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/JS/index.js"></script>
+
+
     <script src="${pageContext.servletContext.contextPath}/JS/index.js"></script>
 </head>
 <body>
@@ -20,7 +23,7 @@
     <div class="box">
         <div class="h1">Резюме</div>
         <div class="box_inner">
-        <button type="button" class="bttn">Пополнить базу</button>
+        <button type="button" class="bttn" id="add_button">Пополнить базу</button>
         </div>
     </div>
 </div>
@@ -101,6 +104,7 @@
         </div>
     </c:forEach>
 </div>
+<div id="message_div">HELLO!</div>
 
 </body>
 </html>
