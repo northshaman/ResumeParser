@@ -1,0 +1,92 @@
+body {
+    font-family: "PT Sans", sans-serif;
+}
+
+.header {
+    /*box-shadow: 10px 5px 5px rgba(0,0,0,.5);*/
+    /*width: 900px;*/
+    height: 60px;
+    background-color: rgb(255, 205, 40);
+    color: black;
+    font-size: larger;
+    padding: 5px 15px;
+}
+
+.header h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.button:hover {
+    transition: 0.5s;
+    background-color: rgb(255, 205, 40);
+    border: 1px solid #967d50;
+}
+
+/*a{*/
+/*display: block; !* Ссылка как блочный элемент *!*/
+/*text-align: center; !* Выравнивание по центру *!*/
+/*height: 100%; !* Высота на весь слой *!*/
+/*color: black; !* Цвет ссылки *!*/
+/*text-decoration: none; !*Убираем подчеркивание у ссылок*!*/
+/*}*/
+
+/************************************************************/
+div {
+    display: block;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.ui {
+    /*font-size: 15px;*/
+    position: relative;
+    max-width: 100%;
+    /*padding-top: 10px;*/
+}
+
+.wrapper {
+    background-color: rgb(255, 205, 40);
+    font-size: 15px;
+    padding: 5px 5px;
+    margin: 10px 0px;
+}
+
+.menu_item {
+    box-sizing: border-box;
+    color: rgb(33, 34, 35);
+    display: block;
+}
+
+.box {
+    /*white-space: nowrap*/
+}
+
+.box div {
+    width: 15%;
+    display: inline-block;
+    border: 1px solid black
+}
+
+.box_inner{
+    margin: 5px 0px;
+    padding: 5px;
+}
+
+.search-input {
+    font-size: 15px;
+    border: 1px solid #572955;
+    height: 40px;
+    width: 100%;
+    padding: 5px 10px;
+    vertical-align: bottom;
+    box-sizing: border-box;
+}
