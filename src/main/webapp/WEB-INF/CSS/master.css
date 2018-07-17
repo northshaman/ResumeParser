@@ -1,10 +1,9 @@
 body {
     font-family: "PT Sans", sans-serif;
+    background-color: #d5d4d6;
 }
 
 .header {
-    /*box-shadow: 10px 5px 5px rgba(0,0,0,.5);*/
-    /*width: 900px;*/
     height: 60px;
     background-color: rgb(255, 205, 40);
     color: black;
@@ -17,25 +16,7 @@ body {
     margin-bottom: 0;
 }
 
-.button:hover {
-    transition: 0.5s;
-    background-color: rgb(255, 205, 40);
-    border: 1px solid #967d50;
-}
-
-/*a{*/
-/*display: block; !* Ссылка как блочный элемент *!*/
-/*text-align: center; !* Выравнивание по центру *!*/
-/*height: 100%; !* Высота на весь слой *!*/
-/*color: black; !* Цвет ссылки *!*/
-/*text-decoration: none; !*Убираем подчеркивание у ссылок*!*/
-/*}*/
-
-/************************************************************/
-div {
-    display: block;
-}
-
+/***************************Navigation menu*********************************/
 form {
     display: block;
     margin-top: 0em;
@@ -76,7 +57,7 @@ form {
     border: 1px solid black
 }
 
-.box_inner{
+.box_inner {
     margin: 5px 0px;
     padding: 5px;
 }
@@ -90,3 +71,113 @@ form {
     vertical-align: bottom;
     box-sizing: border-box;
 }
+
+.bttn {
+    color: white;
+    font-size: 15px;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    border: 1px solid #572955;
+    height: 40px;
+    width: 100%;
+    padding: 5px 10px;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    background: #111111;
+    cursor: pointer;
+}
+
+.bttn:hover {
+    border: none;
+    background: #9b9a9c;
+}
+
+/***************************Navigation menu*********************************/
+
+/***************************Resume Item*********************************/
+.resume_item {
+    display: flex;
+    background-color: #f4f3f5;
+    border: 1px solid #572955;
+    width: 890px;
+    height: 250px;
+    margin: 5px;
+}
+
+.resume_photo {
+    display: block;
+    position: relative;
+    padding: 15px;
+    height: 180px;
+    width: 140px;
+}
+
+.resume_text {
+    display: inline-block;
+    position: relative;
+}
+
+.resume_text_left {
+    width: 80%;
+}
+
+.resume_text_right {
+    width: 20%;
+}
+
+.resume_photo img {
+    max-height: 100%;
+    max-width: 100%;
+    border: 1px solid #572955;;
+    border-radius: 5px;
+}
+
+.resume_link {
+    color: rgb(0, 112, 224);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.resume_field {
+    display: block;
+    padding: 3px;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.edit_resume_button {
+    margin-top: 10px;
+    color: white;
+    font-size: 15px;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    border: 1px solid #572955;
+    padding: 5px 10px;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    background: #111111;
+    cursor: pointer;
+}
+
+.edit_resume_button:hover {
+    background: #9b9a9c;
+}
+
+.separator {
+    margin: 5px 0px;
+}
+
+.heavy_font {
+    font-weight: 700;
+    font-size: 15px;
+    text-size-adjust: 100%;
+}
+
+.thin_font {
+    color: rgb(144, 145, 146);
+    display: inline;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/***************************Resume Item*********************************/
