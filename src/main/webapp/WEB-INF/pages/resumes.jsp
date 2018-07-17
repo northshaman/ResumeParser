@@ -23,7 +23,7 @@
     <div class="box">
         <div class="h1">Резюме</div>
         <div class="box_inner">
-        <button type="button" class="bttn" id="add_button">Пополнить базу</button>
+        <button type="button"  id="add_button" class="bttn">Пополнить базу</button>
         </div>
     </div>
 </div>

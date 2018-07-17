@@ -31,7 +31,8 @@ public class ResumeLoadController {
     }
 
     @RequestMapping(value = "/addPack", method = RequestMethod.POST)
-    public String putResumes(ModelMap model) {
+    public void putResumes(ModelMap model) {
+        System.out.println("We are here!");
         List<Resume> newResumeList = parserService.getNewResumeList();
 //        TODO: fix this controller
         System.out.println("List done -> " + newResumeList.size());
@@ -41,7 +42,7 @@ public class ResumeLoadController {
         });
         System.out.println("added to BD!");
         model.addAttribute("greeting", "Добавлено 50 новых резюме");
-        return "resume";
+//        return "resumes";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)

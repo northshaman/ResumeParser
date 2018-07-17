@@ -91,6 +91,15 @@ form {
     cursor: pointer;
 }
 
+.bttn a {
+    display: block;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    text-decoration: none; /*Убираем подчеркивание у ссылок*/
+}
 .bttn:hover {
     border: none;
     background: #9b9a9c;
@@ -193,6 +202,7 @@ form {
 /***************************Resume Item*********************************/
 
 #message_div{
+    display: none;
     text-align: center;
     background-color: #9b9a9c;
     width: 250px;

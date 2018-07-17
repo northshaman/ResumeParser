@@ -16,4 +16,8 @@ public interface ResumeService {
     void remove(long id);
 
     Resume getByIdOriginal(long idOriginal);
+
+    List<Resume> getFirstByAgeBetweenAndCityContains(Integer age, Integer age2, String city);
+
+    List<Resume> getAllByAgeEqualsAndCityContains(Integer age, String city);
 }

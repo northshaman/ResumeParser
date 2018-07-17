@@ -5,10 +5,7 @@ import com.shaman.parser.services.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,6 +47,20 @@ public class ResumeController {
     @ResponseBody
     public Resume updateResume(@PathVariable("id") Resume resume) {
         return resumeService.update(resume);
+    }
+
+
+    @RequestMapping(value = "/magic/{age1}/{age2}/{city}",method = RequestMethod.GET)
+    @ResponseBody
+    public List<Resume> getMagic(@PathVariable("age1") Integer age1,@PathVariable("age2") Integer age2,@PathVariable("city") String city){
+
+        return resumeService.getFirstByAgeBetweenAndCityContains(age1,age2,city);
+    }
+
+    @RequestMapping(value = "/magic2/{age}/{city}",method = RequestMethod.GET)
+    public String getMagic2(@PathVariable("age") Integer age,@PathVariable("city") String city, Model model){
+            model.addAttribute("resumes", resumeService.getAllByAgeEqualsAndCityContains(age,city));
+        return "resumes";
     }
 
 }
