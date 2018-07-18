@@ -6,17 +6,16 @@ import com.shaman.parser.utils.SiteParserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Controller for adding new Resumes from site
  */
 @Controller
+@CrossOrigin(value = "*")
 @RequestMapping("/parse")
 public class ResumeLoadController {
 
@@ -31,7 +30,7 @@ public class ResumeLoadController {
     }
 
     @RequestMapping(value = "/addPack", method = RequestMethod.POST)
-    public void putResumes(ModelMap model) {
+    public String putResumes(ModelMap model) {
         System.out.println("We are here!");
         List<Resume> newResumeList = parserService.getNewResumeList();
 //        TODO: fix this controller
@@ -42,7 +41,19 @@ public class ResumeLoadController {
         });
         System.out.println("added to BD!");
         model.addAttribute("greeting", "Добавлено 50 новых резюме");
-//        return "resumes";
+        return "resumes";
+    }
+
+    @RequestMapping(value = "/magic", method = RequestMethod.POST)
+    @ResponseBody
+    public String getMagic() {
+        System.out.println("We are here!");
+        try {
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return "Добавлено 50 новых резюме";
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)

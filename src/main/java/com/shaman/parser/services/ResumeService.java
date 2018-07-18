@@ -17,7 +17,7 @@ public interface ResumeService {
 
     Resume getByIdOriginal(long idOriginal);
 
-    List<Resume> getFirstByAgeBetweenAndCityContains(Integer age, Integer age2, String city);
+    List<Resume> getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(String city, String wageLevel, String experience, Integer age, String positionName);
 
-    List<Resume> getAllByAgeEqualsAndCityContains(Integer age, String city);
+    List<Resume> getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(String city, String wageLevel, String experience, String positionName);
 }

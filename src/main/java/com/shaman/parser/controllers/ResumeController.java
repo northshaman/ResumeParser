@@ -13,7 +13,8 @@ import java.util.List;
  * Controller
  */
 @Controller
-@RequestMapping("/resumes")
+@CrossOrigin(value = "*")
+@RequestMapping("/")
 public class ResumeController {
 
     private final ResumeService resumeService;
@@ -27,17 +28,17 @@ public class ResumeController {
     public String getAllResumes(Model model) {
 
         List<Resume> resumeList = resumeService.getAll();
-        model.addAttribute("resumes",resumeList);
+        model.addAttribute("resumes", resumeList);
         return "resumes";
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     public String getResume(@PathVariable("id") long resumeID, Model model) {
-        model.addAttribute("resume",resumeService.getByID(resumeID));
+        model.addAttribute("resume", resumeService.getByID(resumeID));
         return "resume";
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     @ResponseBody
     public void deleteResume(@PathVariable("id") long resumeID) {
         resumeService.remove(resumeID);
@@ -50,16 +51,24 @@ public class ResumeController {
     }
 
 
-    @RequestMapping(value = "/magic/{age1}/{age2}/{city}",method = RequestMethod.GET)
-    @ResponseBody
-    public List<Resume> getMagic(@PathVariable("age1") Integer age1,@PathVariable("age2") Integer age2,@PathVariable("city") String city){
-
-        return resumeService.getFirstByAgeBetweenAndCityContains(age1,age2,city);
+    @RequestMapping(value = "/ultramagic/city={city}/wageLevel={wageLevel}/experience={experience}/age={age}/positionName={positionName}", method = RequestMethod.GET)
+    public String getMagic(Model model,
+                           @PathVariable("city") String city,
+                           @PathVariable("wageLevel") String wageLevel,
+                           @PathVariable("experience") String experience,
+                           @PathVariable("age") Integer age,
+                           @PathVariable("positionName") String positionName) {
+        model.addAttribute("resumes",resumeService.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(city, wageLevel, experience, age, positionName));
+        return "resumes";
     }
 
-    @RequestMapping(value = "/magic2/{age}/{city}",method = RequestMethod.GET)
-    public String getMagic2(@PathVariable("age") Integer age,@PathVariable("city") String city, Model model){
-            model.addAttribute("resumes", resumeService.getAllByAgeEqualsAndCityContains(age,city));
+    @RequestMapping(value = "/ultramagic/city={city}/wageLevel={wageLevel}/experience={experience}/positionName={positionName}", method = RequestMethod.GET)
+    public String getMagic(Model model,
+                           @PathVariable("city") String city,
+                           @PathVariable("wageLevel") String wageLevel,
+                           @PathVariable("experience") String experience,
+                           @PathVariable("positionName") String positionName) {
+        model.addAttribute("resumes",resumeService.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(city, wageLevel, experience, positionName));
         return "resumes";
     }
 

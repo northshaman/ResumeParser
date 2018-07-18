@@ -104,7 +104,7 @@
         </div>
     </c:forEach>
 </div>
-<div id="message_div">HELLO!</div>
+<div id="message_div"><span id="message_text">Добавлено 50 новых резюме</span></div>
 
 </body>
 </html>

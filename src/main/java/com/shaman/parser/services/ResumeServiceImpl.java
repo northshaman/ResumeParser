@@ -80,13 +80,14 @@ public class ResumeServiceImpl implements ResumeService {
         return repository.getByIdOriginal(idOriginal);
     }
 
+
     @Override
-    public List<Resume> getFirstByAgeBetweenAndCityContains(Integer age, Integer age2, String city) {
-        return repository.getAllByAgeBetweenAndCityContains(age,age2,city);
+    public List<Resume> getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(String city, String wageLevel, String experience, Integer age, String positionName) {
+        return repository.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(city,wageLevel,experience,age,positionName);
     }
 
     @Override
-    public List<Resume> getAllByAgeEqualsAndCityContains(Integer age, String city) {
-        return repository.getAllByAgeEqualsAndCityContains(age,city);
+    public List<Resume> getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(String city, String wageLevel, String experience, String positionName) {
+        return repository.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(city,wageLevel,experience,positionName);
     }
 }
