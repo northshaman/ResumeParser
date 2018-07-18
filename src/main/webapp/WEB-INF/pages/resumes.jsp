@@ -13,10 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/CSS/master.css">
     <script src="${pageContext.servletContext.contextPath}/JS/jquery.min.js"></script>
-    <script src="${pageContext.servletContext.contextPath}/JS/index.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/JS/resumes.js"></script>
 
-
-    <script src="${pageContext.servletContext.contextPath}/JS/index.js"></script>
 </head>
 <body>
 <div class="header">
@@ -64,7 +62,7 @@
             <div class="resume_photo">
                 <img src="${resume.pictureLink!=null ? resume.pictureLink : "/img/no_photo.png"}" class="ui image">
                 <div class="edit_resume_button">
-                    <a href="/resumes/get/${resume.id}">Редактировать</a></div>
+                    <a href="/get/${resume.id}">Редактировать</a></div>
             </div>
             <div class="resume_text resume_text_left">
                 <div class="resume_field">
@@ -104,7 +102,12 @@
         </div>
     </c:forEach>
 </div>
-<div id="message_div"><span id="message_text">Добавлено 50 новых резюме</span></div>
+<div id="message_div">
+    <div id="message_text"></div>
+    <div class="loading_box">
+        <span class="loading_text">Пополняем базу резюме</span>
+        <span class="loading_gif"><img src="${pageContext.request.contextPath}/img/giphy-downsized.gif"></span> </div>
+</div>
 
 </body>
 </html>

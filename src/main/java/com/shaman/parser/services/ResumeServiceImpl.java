@@ -20,7 +20,6 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     /**
-     *
      * @return List of all resumes in base
      */
     @Override
@@ -29,8 +28,7 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     /**
-     *
-     * @param id  - native id in DB
+     * @param id - native id in DB
      * @return Single Resume from base finding by ID
      */
     @Override
@@ -39,7 +37,6 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     /**
-     *
      * @param resume entity
      * @return the saved entity
      */
@@ -49,7 +46,6 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     /**
-     *
      * @param resume entity
      * @return added resume or null if resume exist already
      */
@@ -62,7 +58,6 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     /**
-     *
      * @param id delete single resume from DB
      */
     @Override
@@ -71,7 +66,6 @@ public class ResumeServiceImpl implements ResumeService {
     }
 
     /**
-     *
      * @param idOriginal original ID from parsed site
      * @return resume obj if exist
      */
@@ -80,14 +74,30 @@ public class ResumeServiceImpl implements ResumeService {
         return repository.getByIdOriginal(idOriginal);
     }
 
-
+    /**
+     *  method for filtering exit collection of Resumes
+     * @param city  - city contains parameter
+     * @param wageLevel -contains parameter
+     * @param experience -contains parameter
+     * @param age -equal parameter
+     * @param positionName-contains parameter
+     * @return filtered list of resume
+     */
     @Override
     public List<Resume> getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(String city, String wageLevel, String experience, Integer age, String positionName) {
-        return repository.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(city,wageLevel,experience,age,positionName);
+        return repository.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(city, wageLevel, experience, age, positionName);
     }
 
+    /**
+     *
+     * @param city -contains parameter
+     * @param wageLevel -contains parameter
+     * @param experience -contains parameter
+     * @param positionName -contains parameter
+     * @return filtered list of resume
+     */
     @Override
     public List<Resume> getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(String city, String wageLevel, String experience, String positionName) {
-        return repository.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(city,wageLevel,experience,positionName);
+        return repository.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(city, wageLevel, experience, positionName);
     }
 }

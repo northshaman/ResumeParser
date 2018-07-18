@@ -1,22 +1,22 @@
 window.onload = function () {
 
-    var addButton = $("#add_button");
     var messageBox = $("#message_div");
-    var messageBoxSpan = $("#message_text");
-
+    var messageTextDiv = $("#message_text");
+    var loadingDiv = $(".loading_box");
+    var addButton = $("#add_button");
 
     addButton.click(function () {
-        showMessage("Пополняем базу резюме");
-        messageBox.fadeOut("slow");
+        showLoadingMessage();
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url: getRootUrl() + "/parse/magic",
+            url: getRootUrl() + "/parse/addPack",
             data: null,
             dataType: 'json',
-            timeout: 100000,
+            timeout: 10000000,
             success: function (data) {
-                showMessage(data);
+                showAndHideMessage(data);
+                addButton.prop("disabled",false);
                 setTimeout(function () {
                     location.reload();
                 }, 10000);
@@ -25,19 +25,29 @@ window.onload = function () {
                 console.log("ERROR: ", e);
             },
             done: function (e) {
-                console.log("DONE");
+                console.log("DONE ", e);
             }
         });
     });
 
-    function showMessage(messageText) {
-        messageBoxSpan.text(messageText);
+    function showLoadingMessage() {
+        addButton.prop("disabled",true);
+        messageTextDiv.css("display", "none");
         messageBox.fadeIn("slow");
+        loadingDiv.css("display", "flex");
+    }
+
+    function showAndHideMessage(messageText) {
+        loadingDiv.css("display", "none");
+        messageTextDiv.text(messageText);
+        messageBox.fadeIn("slow");
+        messageTextDiv.css("display", "flex");
         messageBox.css("display", "flex");
         messageBox.delay(5000);
         messageBox.fadeOut("slow");
-    };
+    }
 
+    // function for getting root url of app
     function getRootUrl() {
         return window.location.origin ? window.location.origin + '/' : window.location.protocol + '/' + window.location.host + '/';
     }

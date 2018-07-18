@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Controller
 @CrossOrigin(value = "*")
-@RequestMapping("/")
+//@RequestMapping("/")
 public class ResumeController {
 
     private final ResumeService resumeService;
@@ -32,26 +32,26 @@ public class ResumeController {
         return "resumes";
     }
 
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
     public String getResume(@PathVariable("id") long resumeID, Model model) {
         model.addAttribute("resume", resumeService.getByID(resumeID));
         return "resume";
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.POST)
     @ResponseBody
     public void deleteResume(@PathVariable("id") long resumeID) {
         resumeService.remove(resumeID);
     }
 
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "get/{id}", method = RequestMethod.POST)
     @ResponseBody
     public Resume updateResume(@PathVariable("id") Resume resume) {
         return resumeService.update(resume);
     }
 
 
-    @RequestMapping(value = "/ultramagic/city={city}/wageLevel={wageLevel}/experience={experience}/age={age}/positionName={positionName}", method = RequestMethod.GET)
+    @RequestMapping(value = "filter/city={city}/wageLevel={wageLevel}/experience={experience}/age={age}/positionName={positionName}", method = RequestMethod.GET)
     public String getMagic(Model model,
                            @PathVariable("city") String city,
                            @PathVariable("wageLevel") String wageLevel,
@@ -62,7 +62,7 @@ public class ResumeController {
         return "resumes";
     }
 
-    @RequestMapping(value = "/ultramagic/city={city}/wageLevel={wageLevel}/experience={experience}/positionName={positionName}", method = RequestMethod.GET)
+    @RequestMapping(value = "filter/city={city}/wageLevel={wageLevel}/experience={experience}/positionName={positionName}", method = RequestMethod.GET)
     public String getMagic(Model model,
                            @PathVariable("city") String city,
                            @PathVariable("wageLevel") String wageLevel,
