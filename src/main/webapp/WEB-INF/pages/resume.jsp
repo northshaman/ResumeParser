@@ -13,7 +13,7 @@
 <div class="list">
         <div class="resume_item">
             <div class="resume_photo">
-                <img src="${resume.pictureLink!=null ? resume.pictureLink : "/img/no_photo.jpg"}" class="ui image">
+                <img src="${resume.pictureLink!=null ? resume.pictureLink : "/img/no_photo.png"}" class="ui image">
                 <div class="edit_resume_button">
                     <a href="/delete/${resume.id}">Удалить</a></div>
             </div>
