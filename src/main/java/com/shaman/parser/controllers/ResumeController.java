@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -14,7 +15,6 @@ import java.util.List;
  */
 @Controller
 @CrossOrigin(value = "*")
-//@RequestMapping("/")
 public class ResumeController {
 
     private final ResumeService resumeService;
@@ -38,12 +38,14 @@ public class ResumeController {
         return "resume";
     }
 
-    @RequestMapping(value = "delete/{id}", method = RequestMethod.POST)
-    @ResponseBody
-    public void deleteResume(@PathVariable("id") long resumeID) {
+    // there should be DELETE OR POST method!
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteResume(@PathVariable("id") long resumeID) {
         resumeService.remove(resumeID);
+        return new ModelAndView("redirect:/");
     }
 
+    //method for Json
     @RequestMapping(value = "get/{id}", method = RequestMethod.POST)
     @ResponseBody
     public Resume updateResume(@PathVariable("id") Resume resume) {
@@ -58,7 +60,7 @@ public class ResumeController {
                            @PathVariable("experience") String experience,
                            @PathVariable("age") Integer age,
                            @PathVariable("positionName") String positionName) {
-        model.addAttribute("resumes",resumeService.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(city, wageLevel, experience, age, positionName));
+        model.addAttribute("resumes", resumeService.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndAgeEqualsAndPositionNameContains(city, wageLevel, experience, age, positionName));
         return "resumes";
     }
 
@@ -68,7 +70,7 @@ public class ResumeController {
                            @PathVariable("wageLevel") String wageLevel,
                            @PathVariable("experience") String experience,
                            @PathVariable("positionName") String positionName) {
-        model.addAttribute("resumes",resumeService.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(city, wageLevel, experience, positionName));
+        model.addAttribute("resumes", resumeService.getAllByCityContainsAndWageLevelContainsAndExperienceContainsAndPositionNameContains(city, wageLevel, experience, positionName));
         return "resumes";
     }
 

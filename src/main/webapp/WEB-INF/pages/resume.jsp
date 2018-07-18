@@ -6,7 +6,7 @@
     <title>Список резюме</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/CSS/master.css">
-    <script src="${pageContext.servletContext.contextPath}/JS/index.js"></script>
+    <script src="${pageContext.servletContext.contextPath}/JS/resume.js"></script>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
             <div class="resume_photo">
                 <img src="${resume.pictureLink!=null ? resume.pictureLink : "/img/no_photo.jpg"}" class="ui image">
                 <div class="edit_resume_button">
-                    <a href="/resumes/delete/${resume.id}">Удалить</a></div>
+                    <a href="/delete/${resume.id}">Удалить</a></div>
             </div>
             <div class="resume_text resume_text_left">
                 <div class="resume_field">

@@ -25,28 +25,27 @@
         </div>
     </div>
 </div>
-<form autocomplete="off" class="ui form">
+<form autocomplete="off" class="ui form" id="findForm">
     <div class="wrapper">
         <div class="container">
             <div class="menu_item box">
                 <div class="box_inner">
-                    <input class="search-input" required placeholder="Город">
+                    <input class="search-input" id="city"  placeholder="Город">
                 </div>
                 <div class="box_inner">
-                    <input class="search-input" required placeholder="Зарплата">
+                    <input class="search-input" id="wageLevel" placeholder="Зарплата">
                 </div>
                 <div class="box_inner">
-                    <input class="search-input" required placeholder="Стаж">
+                    <input class="search-input" id="experience" placeholder="Стаж">
                 </div>
                 <div class="box_inner">
-                    <input class="search-input" required placeholder="Возраст">
+                    <input class="search-input" id="age" pattern="[0-9]{2,3}" placeholder="Возраст">
                 </div>
                 <div class="box_inner">
-                    <input class="search-input" required placeholder="Должность">
+                    <input class="search-input" id="positionName" placeholder="Должность">
                 </div>
-
                 <div class="box_inner">
-                    <button type="button" class="bttn">Найти</button>
+                    <button type="submit" class="bttn" id="find_button">Найти</button>
                 </div>
             </div>
 

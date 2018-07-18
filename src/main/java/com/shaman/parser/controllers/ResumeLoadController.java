@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Controller for adding new Resumes from site
@@ -41,11 +40,6 @@ public class ResumeLoadController {
                 counter++;
             } else System.out.println("already have one!");
         }
-//        try {
-//            TimeUnit.SECONDS.sleep(10);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         System.out.println(counter + " resumes added to BD!");
         return "Добавлено " + counter + " новых резюме";
     }

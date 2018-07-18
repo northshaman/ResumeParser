@@ -1,9 +1,19 @@
 window.onload = function () {
 
+
     var messageBox = $("#message_div");
     var messageTextDiv = $("#message_text");
     var loadingDiv = $(".loading_box");
     var addButton = $("#add_button");
+    var findForm = $("#findForm");
+    findForm.prop("action", getRootUrl());
+
+    var searchInput = $(".search-input");
+    var city = $("#city");
+    var wageLevel = $("#wageLevel");
+    var experience = $("#experience");
+    var age = $("#age");
+    var positionName = $("#positionName");
 
     addButton.click(function () {
         showLoadingMessage();
@@ -16,7 +26,7 @@ window.onload = function () {
             timeout: 10000000,
             success: function (data) {
                 showAndHideMessage(data);
-                addButton.prop("disabled",false);
+                addButton.prop("disabled", false);
                 setTimeout(function () {
                     location.reload();
                 }, 10000);
@@ -31,7 +41,7 @@ window.onload = function () {
     });
 
     function showLoadingMessage() {
-        addButton.prop("disabled",true);
+        addButton.prop("disabled", true);
         messageTextDiv.css("display", "none");
         messageBox.fadeIn("slow");
         loadingDiv.css("display", "flex");
@@ -52,4 +62,13 @@ window.onload = function () {
         return window.location.origin ? window.location.origin + '/' : window.location.protocol + '/' + window.location.host + '/';
     }
 
+    searchInput.on("keyup",function () {
+        if (age.val().length >= 1) {
+            findForm.prop("action", getRootUrl() + "filter/city=" + city.val() + "/wageLevel=" + wageLevel.val() + "/experience=" + experience.val() + "/age=" + age.val() + "/positionName=" + positionName.val());
+        }
+        else
+        {
+            findForm.prop("action", getRootUrl() + "filter/city=" + city.val() + "/wageLevel=" + wageLevel.val() + "/experience=" + experience.val() + "/positionName=" + positionName.val());
+        }
+    });
 };
